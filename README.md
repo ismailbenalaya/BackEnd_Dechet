@@ -1,137 +1,148 @@
-Backend Project – Node.js + Express + MongoDB
-This is a Node.js backend project using Express, MongoDB (via Mongoose), and additional libraries for:
+# ♻️ Waste Management Backend – Node.js + Express + MongoDB
 
-User authentication (including admin)
+A backend system built using **Node.js**, **Express**, and **MongoDB (Mongoose)**. It supports full **user & admin authentication**, **role-based access control**, **category and waste management**, **PDF report generation**, and **email notifications**.
 
-Role management
+---
 
-Category & waste (déchet) management
+## 🚀 Features
 
-PDF generation
+- ✅ User and Admin Authentication
+- 🧑‍⚖️ Role-based Access Control
+- 🗂️ Category & Waste (Déchet) Management
+- 🧾 Automatic PDF Report Generation
+- 📧 Email Notifications (via Nodemailer)
 
-Email notifications
+---
 
-🚀 Features
-✅ User and admin authentication
+## 📦 Prerequisites
 
-🧑‍⚖️ Role-based access control
+Make sure the following are installed:
 
-🗂️ Category & waste (déchet) management
+- **Node.js** (v14 or higher)
+- **MongoDB** (Local or Cloud like Atlas)
 
-🧾 Automatic PDF generation
+---
 
-📧 Email notifications using Nodemailer
+## ⚙️ Installation
 
-📦 Prerequisites
-Make sure you have the following installed:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/Backend_PFE-main.git
+   cd Backend_PFE-main
 
-Node.js (v14 or higher recommended)
+2. **Install dependencies:**
+    ```bash
+    npm install
+3. **Environment configuration:**
 
-MongoDB (local or cloud instance)
-
-⚙️ Installation
-Clone the repository:
-
-bash
-Copier
-Modifier
-git clone <your-repo-url>
-cd Backend_PFE-main
-Install dependencies:
-
-bash
-Copier
-Modifier
-npm install
-Configure environment variables:
-
-Create a .env file inside the config/ folder.
-
-Add the required variables like:
-
-ini
-Copier
-Modifier
+Create a **.env** file inside the **config/** folder
+```ini
 PORT=3000
 MONGODB_URI=mongodb://localhost:27017/your-db
 JWT_SECRET=your-secret-key
-EMAIL_USER=your-email
-EMAIL_PASS=your-password
-Make sure this file is NOT committed to version control.
+EMAIL_USER=your-email@example.com
+EMAIL_PASS=your-email-password
+```
 
-🖥️ Running the Server
+🔒 Note: Do not commit the .env file to version control!
+
+---
+## 🖥️ Running the Server
 Start the development server with:
-
-bash
-Copier
-Modifier
+```
 npm start
-The server will run on the port defined in .env (default: 3000).
 
-Visit: http://localhost:3000
-You should see: Hello, Node.js!
+ ```
+ If everything is set up correctly, visit: http://localhost:3000
 
-🧱 Project Structure
-bash
-Copier
-Modifier
+---
+## 🧱 Project Structure
+
+```
 Backend_PFE-main/
-│
-├── index.js                 # Entry point (Express setup)
+├── index.js                 # Entry point – Express setup
 ├── dbConfig/
-│   └── dbConfig.js          # MongoDB connection config
-├── controller/              # Business logic for each resource
-├── model/                   # Mongoose schemas & models
-├── route/                   # Express route definitions
-└── config/
-    └── .env                 # Environment variables (not tracked)
-🔗 API Endpoints
-Each of these endpoints has its own controller, model, and routes:
+│   └── dbConfig.js          # MongoDB connection
+├── config/
+│   └── .env                 # Environment variables
+├── controller/              # Business logic
+├── model/                   # Mongoose models
+├── route/                   # Express route handlers
 
-Endpoint	Purpose
-/user	User operations
-/auth	User login/authentication
-/admin	Admin operations
-/auth/admin	Admin login/authentication
-/role	Role creation and assignment
-/categorie	Category CRUD
-/dechet	Waste (déchet) management
-/pvDechet	PDF-related actions for waste
+```
+---
+## 🔗 API Endpoints
 
-🧪 Testing the API
-Use tools like Postman or Insomnia to interact with the API.
+Each endpoint has its own controller, model, and route file:
 
-Examples:
-Register a user: POST /user/register
 
-Login: POST /auth/login
+| Endpoint      | Purpose                         |
+| ------------- | ------------------------------- |
+| `/user`       | User registration & listing     |
+| `/auth`       | User login/authentication       |
+| `/admin`      | Admin-specific operations       |
+| `/auth/admin` | Admin login/authentication      |
+| `/role`       | Role creation and assignment    |
+| `/categorie`  | CRUD operations for categories  |
+| `/dechet`     | Waste (Déchet) management       |
+| `/pvDechet`   | PDF generation related to waste |
 
-Add category: POST /categorie
 
-Generate waste report: GET /pvDechet/generate
+---
+## 🧪 API Testing (Examples)
 
-📜 Scripts
-Command	Description
-npm start	Start the server
 
-📚 Dependencies
-Main libraries used:
+You can use Postman, Insomnia, or Thunder Client to test the API:
+
+
+**Register a new user:**
+```
+POST /user/register
+Content-Type: application/json
+
+{
+  "firstName": "john",
+  "name" : "walker"
+  "email": "john@example.com",
+  "password": "yourpassword",
+  "role" : "emetteur",
+}
+```
+
+**Login :** 
+```
+http://localhost:3000/auth/admin/login
+```
+---
+
+## 📚 Dependencies
 
 express – Web framework
 
 mongoose – MongoDB ODM
 
-dotenv – Environment variable loader
+dotenv – Environment variables
 
-cors – Cross-Origin support
+cors – Cross-Origin Resource Sharing
 
-body-parser – Parses incoming request bodies
+body-parser – Parse incoming requests
 
 bcrypt – Password hashing
 
-jsonwebtoken – Token-based auth
+jsonwebtoken – Token-based authentication
 
-nodemailer – Sending emails
+nodemailer – Email sending
 
-pdfkit – PDF generation
+pdfkit – PDF report generation
+
+---
+## 📬 Contact
+
+For any queries or contributions, feel free to open an issue or contact the maintainer.
+
+***Happy coding! 💻***
+
+
+
+
 
